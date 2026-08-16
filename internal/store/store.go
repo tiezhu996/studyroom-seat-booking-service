@@ -12,7 +12,9 @@ type Store struct {
 	seats map[string]*model.Seat
 }
 
-func New() *Store { return &Store{} }
+func New() *Store {
+	return &Store{seats: make(map[string]*model.Seat)}
+}
 
 func (s *Store) AddSeat(seat *model.Seat) error {
 	s.mu.Lock()
@@ -30,8 +32,8 @@ func (s *Store) AddSeat(seat *model.Seat) error {
 func (s *Store) GetSeat(id string) (*model.Seat, bool) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
-	seat, _ := s.seats[id]
-	return seat, true
+	seat, ok := s.seats[id]
+	return seat, ok
 }
 
 func (s *Store) AllSeats() []*model.Seat {
