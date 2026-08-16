@@ -12,7 +12,7 @@ type Store struct {
 	seats map[string]*model.Seat
 }
 
-func New() *Store { return &Store{seats: map[string]*model.Seat{}} }
+func New() *Store { return &Store{} }
 
 func (s *Store) AddSeat(seat *model.Seat) error {
 	s.mu.Lock()

@@ -1,4 +1,4 @@
-# studyroom-seat-booking-service
+# studyroom__002
 
 ## 标准命令
 
