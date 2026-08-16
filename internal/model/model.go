@@ -11,5 +11,8 @@ type Seat struct {
 }
 
 func (s *Seat) IsBooked() bool {
-	return s.Status != StatusFree
+	if s == nil {
+		return false
+	}
+	return s.Status == StatusBooked
 }
