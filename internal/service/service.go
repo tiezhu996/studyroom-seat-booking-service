@@ -16,6 +16,9 @@ func (s *Service) Book(id string) error {
 	if !ok {
 		return fmt.Errorf("seat not found")
 	}
+	if seat == nil {
+		return fmt.Errorf("seat is nil")
+	}
 	seat.Status = model.StatusBooked
 	return nil
 }
